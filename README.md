@@ -2,7 +2,7 @@ Run:
 ```
 npm i
 ```
-to build node dependencies
+to build node dependencies, 
 and then:
 ```
 ionic serve
