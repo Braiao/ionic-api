@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 1
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 1</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div>
+    <h3>Página: {{ paginaAtual }}</h3>
+    <h3>Total de páginas: {{ totalPaginas }}</h3>
+
+    <h2>Lista de usuários</h2>
+
+    <ion-list>
+      <ion-item *ngFor="let item of dados.data">
+        <div>
+          <ion-avatar slot="start">
+            <img [src]="item.avatar" alt="Foto da pessoa">
+          </ion-avatar>
+          <span>{{ item.first_name + ' ' + item.last_name }}</span>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <!-- Navegação -->
+    <div class="pagination-controls">
+      <ion-button (click)="paginaAnterior()" [disabled]="paginaAtual === 1">
+        <ion-icon slot="start" name="arrow-back"></ion-icon>
+        Anterior
+      </ion-button>
+      <ion-button (click)="proximaPagina()" [disabled]="paginaAtual === totalPaginas">
+        Próximo
+        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
